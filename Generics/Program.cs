@@ -22,15 +22,31 @@ namespace Generics
 
         static void Main(string[] args)
         {
-
-            var numbers = new int[] { 1, 2, 3, 4, 5, 6 };
-
-            
+            Storage<Equipment> E = new Storage<Equipment>();
+            Storage<Food> F = new Storage<Food>();
 
 
+            CountToNum(12.45);
+            CountToNum(17.36);
+
+            var numbers = new int[] { 1, 2, 3, 4, 5, 6, 37, 76, 83, 105, 245 };
+
+            var Enums = ExtensionMethod.FindOdds<int>(numbers);
+            foreach (var a in Enums)
+                Console.WriteLine(a);
+
+            var sorted = ExtensionMethod.SortArray<int>(numbers);
+            foreach (var d in sorted)
+                Console.WriteLine(d);
 
         }
-      
+        
+
+        public static void CountToNum<T>(T n)
+        {
+            for (int i = 0; i <= Convert.ToInt32(n); i++)
+                Console.WriteLine(i);
+        }
 
         //ExtensionMethods
         //TODO Create a static class called "ExtensionMethods"
